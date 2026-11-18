@@ -74,8 +74,12 @@ let cur = null;    // 지금 하는 작업
 let tick = null;
 let flash = "";    // 화면 위에 잠깐 보이는 안내
 
+const NO_SERVER = "앱 서버에 연결할 수 없습니다. 앱을 켠 터미널이 꺼졌는지 확인하세요. 꺼졌다면 다시 실행(python -X utf8 -W ignore src/measure_app.py)한 뒤 이 화면을 새로고침하면 됩니다. 입력하던 내용은 이 화면에 남아 있습니다.";
 async function api(path, body) {
-  const r = await fetch(path, body === undefined ? {} : { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) });
+  let r;
+  try {
+    r = await fetch(path, body === undefined ? {} : { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) });
+  } catch (e) { throw new Error(NO_SERVER); }  // 서버가 꺼졌을 때 브라우저는 'Failed to fetch'만 알려 준다
   const j = await r.json().catch(() => ({}));
   if (!r.ok) throw new Error(j.error || ("오류 " + r.status));
   return j;
@@ -244,7 +248,11 @@ async function finish() {
 
 /* ---------- 시작 ---------- */
 (async function boot() {
-  try { S = await api("/api/state"); } catch (e) { document.getElementById("app").innerHTML = `<div class="err">앱 서버에 연결할 수 없습니다: ${esc(e.message)}</div>`; return; }
+  try { S = await api("/api/state"); } catch (e) {
+    const viaFile = location.protocol !== "http:";
+    document.getElementById("app").innerHTML = `<div class="err"><b>${esc(e.message)}</b>${viaFile ? "<br>이 화면은 파일로 직접 열려 있어서 동작하지 않습니다. 반드시 앱을 실행한 뒤 http://127.0.0.1:8765/ 주소로 여세요." : ""}</div>`;
+    return;
+  }
   try {
     const raw = localStorage.getItem(KEY);
     if (raw) {  // 새로고침으로 날아간 작업을 일시정지 상태로 이어서 한다
