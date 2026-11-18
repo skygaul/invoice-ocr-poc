@@ -106,6 +106,7 @@ python -X utf8 src/export_xlsx.py --pred outputs/A/<실행시각>/predictions.js
 | `src/run_a.py`, `src/table_parse.py` | 후보 A: PDF → 글자 인식 → 줄·표 조립 → 값, 확인 필요 표시, 박스 |
 | `src/score.py`, `src/test_score.py` | 채점기(모델 실행 전에 규칙 고정)와 테스트 24개 |
 | `src/export_xlsx.py`, `src/test_export.py` | 결과 → 엑셀·CSV 행 초안, 테스트 9개 |
+| `src/measure.py`, `src/test_measure.py`, `measurement/` | 수기 입력 vs AI 보조 측정 도구(테스트 19개)와 기록 시트(아직 비어 있음) |
 | `src/reproduce.py`, `src/prepare_a.py` | 재현 확인, 모델 준비 |
 | `src/run_b.py`, `src/prepare_b.py` | 후보 B (선택 사항) |
 | `src/common.py` | PDF 렌더링, 파이썬 외부 연결 차단, 박스 그림 |
@@ -136,7 +137,7 @@ python -X utf8 src/export_xlsx.py --pred outputs/A/<실행시각>/predictions.js
 
 ## 아직 없는 것
 - 웹 화면 같은 **데모**(지금은 엑셀 파일과 박스 그림 파일로 확인합니다)
-- **기존 방식(직원 수기 입력)과의 시간·정확도 비교**
+- **기존 방식(직원 수기 입력)과의 시간·정확도 비교** — 측정 도구와 절차는 준비됐고 아직 재지 않았습니다([docs/07_수기입력_측정절차.md](docs/07_수기입력_측정절차.md))
 - **실제 명세서**로 재측정(거래처명·단가를 가린 5~10장)
 
 ## 문서
@@ -150,5 +151,6 @@ python -X utf8 src/export_xlsx.py --pred outputs/A/<실행시각>/predictions.js
 | 실행·채점 결과 비교 | [docs/05_결과비교.md](docs/05_결과비교.md) |
 | 오류 분석(박스 그림 검산, 실패 사례) | [docs/04_오류분석.md](docs/04_오류분석.md) |
 | 결론과 회고 | [docs/06_결론.md](docs/06_결론.md) |
+| 수기 입력 대비 측정 절차 (기준 7) | [docs/07_수기입력_측정절차.md](docs/07_수기입력_측정절차.md) |
 
 환경: Windows 11, Python 3.13, paddleocr 3.7.0, paddlepaddle 3.3.1(CPU 빌드). 라이선스·버전은 바뀝니다. 확인 날짜와 근거는 `docs/03_후보표.md`.
