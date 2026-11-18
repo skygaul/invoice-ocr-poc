@@ -1,0 +1,10 @@
+# 후보 A(재현 대상)에 필요한 패키지. 2026-11-17~18 Windows 11, Python 3.13 CPU에서 실제로 쓴 버전.
+# paddlepaddle은 CPU 빌드(GPU 아님). 설치: pip install -r requirements.txt
+paddlepaddle==3.3.1
+paddleocr==3.7.0
+paddlex==3.7.2          # paddleocr가 [ocr-core]로 끌어오는 패키지. 같은 버전으로 고정
+pymupdf==2.1            # PDF를 이미지로 바꿈. 라이선스 AGPL 또는 상용: 제품 배포 전에 확인 필요
+pillow==13.0.0
+numpy==2.3.5
+huggingface_hub==2.4.0  # prepare_a.py가 모델을 내려받을 때만 사용
+openpyxl==3.1.5         # 결과를 엑셀(.xlsx)로 내보낼 때(run_a.py --export, export_xlsx.py). 재현 확인에는 필요 없음

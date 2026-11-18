@@ -1,0 +1,6 @@
+﻿file,difficulty,predicted,item_errors,item_silent,field_errors,field_silent,mismatch_flag_ok,seconds
+명세서_02.pdf,쉬움,True,0,0,0,0,True,117.59552579995943
+명세서_17.pdf,어려움,True,4,1,1,0,True,168.8757035000017
+명세서_18.pdf,어려움,True,1,1,0,0,True,270.53535040002316
+명세서_19.pdf,어려움,True,0,0,0,0,True,410.22188049997203
+명세서_20.pdf,어려움,True,5,0,0,0,False,196.4125130000175

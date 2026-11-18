@@ -1,0 +1,2121 @@
+[
+ {
+  "file": "명세서_01.pdf",
+  "seconds": 16.53088579996256,
+  "total_mismatch": false,
+  "fields": {
+   "supplier": {
+    "value": "바다한상수산",
+    "review": false,
+    "box": [
+     638,
+     238,
+     928,
+     263
+    ]
+   },
+   "date": {
+    "value": "2026-11-08",
+    "review": false,
+    "box": [
+     78,
+     170,
+     358,
+     206
+    ]
+   },
+   "doc_total": {
+    "value": 138250,
+    "review": false,
+    "box": [
+     963,
+     705,
+     1148,
+     749
+    ]
+   }
+  },
+  "items": [
+   {
+    "item": "칵테일새우",
+    "qty": 2.5,
+    "unit_price": 15000,
+    "amount": 37500,
+    "review": false,
+    "box": [
+     157,
+     482,
+     1153,
+     524
+    ]
+   },
+   {
+    "item": "모둠해물",
+    "qty": 2,
+    "unit_price": 18000,
+    "amount": 36000,
+    "review": true,
+    "box": [
+     153,
+     534,
+     1151,
+     580
+    ]
+   },
+   {
+    "item": "홍합",
+    "qty": 10.5,
+    "unit_price": 4500,
+    "amount": 47250,
+    "review": false,
+    "box": [
+     151,
+     588,
+     1153,
+     634
+    ]
+   },
+   {
+    "item": "오징어",
+    "qty": 5,
+    "unit_price": 3500,
+    "amount": 17500,
+    "review": false,
+    "box": [
+     153,
+     645,
+     1153,
+     687
+    ]
+   }
+  ]
+ },
+ {
+  "file": "명세서_02.pdf",
+  "seconds": 13.72940860001836,
+  "total_mismatch": false,
+  "fields": {
+   "supplier": {
+    "value": "초록마을농산",
+    "review": false,
+    "box": [
+     472,
+     54,
+     783,
+     123
+    ]
+   },
+   "date": {
+    "value": "2026-09-17",
+    "review": false,
+    "box": [
+     83,
+     201,
+     314,
+     245
+    ]
+   },
+   "doc_total": {
+    "value": 54000,
+    "review": false,
+    "box": [
+     1033,
+     531,
+     1148,
+     578
+    ]
+   }
+  },
+  "items": [
+   {
+    "item": "양배추",
+    "qty": 5,
+    "unit_price": 4200,
+    "amount": 21000,
+    "review": false,
+    "box": [
+     90,
+     334,
+     1150,
+     388
+    ]
+   },
+   {
+    "item": "대파",
+    "qty": 5,
+    "unit_price": 3800,
+    "amount": 19000,
+    "review": false,
+    "box": [
+     89,
+     389,
+     1148,
+     444
+    ]
+   },
+   {
+    "item": "레몬",
+    "qty": 20,
+    "unit_price": 700,
+    "amount": 14000,
+    "review": false,
+    "box": [
+     87,
+     446,
+     1148,
+     500
+    ]
+   }
+  ]
+ },
+ {
+  "file": "명세서_03.pdf",
+  "seconds": 18.51712159998715,
+  "total_mismatch": false,
+  "fields": {
+   "supplier": {
+    "value": "한울닭유통",
+    "review": false,
+    "box": [
+     637,
+     228,
+     906,
+     261
+    ]
+   },
+   "date": {
+    "value": "2026-10-15",
+    "review": false,
+    "box": [
+     79,
+     166,
+     441,
+     197
+    ]
+   },
+   "doc_total": {
+    "value": 189600,
+    "review": false,
+    "box": [
+     963,
+     868,
+     1146,
+     912
+    ]
+   }
+  },
+  "items": [
+   {
+    "item": "닭안심",
+    "qty": 5,
+    "unit_price": 7800,
+    "amount": 39000,
+    "review": false,
+    "box": [
+     157,
+     479,
+     1151,
+     517
+    ]
+   },
+   {
+    "item": "닭목살",
+    "qty": 3,
+    "unit_price": 9500,
+    "amount": 28500,
+    "review": false,
+    "box": [
+     157,
+     534,
+     1150,
+     568
+    ]
+   },
+   {
+    "item": "닭염통",
+    "qty": 2,
+    "unit_price": 7200,
+    "amount": 14400,
+    "review": false,
+    "box": [
+     155,
+     585,
+     1150,
+     625
+    ]
+   },
+   {
+    "item": "닭껍질",
+    "qty": 5,
+    "unit_price": 5500,
+    "amount": 27500,
+    "review": true,
+    "box": [
+     157,
+     641,
+     1151,
+     678
+    ]
+   },
+   {
+    "item": "닭무릎연골",
+    "qty": null,
+    "unit_price": 14000,
+    "amount": 14000,
+    "review": true,
+    "box": [
+     155,
+     694,
+     1151,
+     733
+    ]
+   },
+   {
+    "item": "닭가슴연골",
+    "qty": 2,
+    "unit_price": 13500,
+    "amount": 27000,
+    "review": false,
+    "box": [
+     157,
+     747,
+     1150,
+     786
+    ]
+   },
+   {
+    "item": "닭완자(츠쿠네용)",
+    "qty": 4,
+    "unit_price": 9800,
+    "amount": 39200,
+    "review": false,
+    "box": [
+     157,
+     802,
+     1150,
+     840
+    ]
+   }
+  ]
+ },
+ {
+  "file": "명세서_04.pdf",
+  "seconds": 14.120389999938197,
+  "total_mismatch": false,
+  "fields": {
+   "supplier": {
+    "value": "한울닭유통",
+    "review": false,
+    "box": [
+     494,
+     54,
+     755,
+     125
+    ]
+   },
+   "date": {
+    "value": "2026-11-12",
+    "review": false,
+    "box": [
+     79,
+     206,
+     281,
+     254
+    ]
+   },
+   "doc_total": {
+    "value": 180200,
+    "review": false,
+    "box": [
+     1011,
+     582,
+     1148,
+     633
+    ]
+   }
+  },
+  "items": [
+   {
+    "item": "닭염통",
+    "qty": 4.5,
+    "unit_price": 7200,
+    "amount": 32400,
+    "review": false,
+    "box": [
+     87,
+     342,
+     1146,
+     393
+    ]
+   },
+   {
+    "item": "닭무릎연골",
+    "qty": 3,
+    "unit_price": 14000,
+    "amount": 42000,
+    "review": false,
+    "box": [
+     85,
+     397,
+     1146,
+     451
+    ]
+   },
+   {
+    "item": "닭모래집",
+    "qty": 3.5,
+    "unit_price": 6800,
+    "amount": 23800,
+    "review": false,
+    "box": [
+     87,
+     455,
+     1146,
+     506
+    ]
+   },
+   {
+    "item": "닭다리살",
+    "qty": 10,
+    "unit_price": 8200,
+    "amount": 82000,
+    "review": false,
+    "box": [
+     87,
+     509,
+     1148,
+     564
+    ]
+   }
+  ]
+ },
+ {
+  "file": "명세서_05.pdf",
+  "seconds": 15.86037850001594,
+  "total_mismatch": false,
+  "fields": {
+   "supplier": {
+    "value": "초록마을농산",
+    "review": false,
+    "box": [
+     631,
+     228,
+     923,
+     259
+    ]
+   },
+   "date": {
+    "value": "2026-10-28",
+    "review": false,
+    "box": [
+     70,
+     166,
+     373,
+     207
+    ]
+   },
+   "doc_total": {
+    "value": 98500,
+    "review": false,
+    "box": [
+     982,
+     647,
+     1144,
+     691
+    ]
+   }
+  },
+  "items": [
+   {
+    "item": "무",
+    "qty": 5,
+    "unit_price": 2500,
+    "amount": 12500,
+    "review": false,
+    "box": [
+     149,
+     473,
+     1148,
+     528
+    ]
+   },
+   {
+    "item": "양배추",
+    "qty": 10,
+    "unit_price": 4200,
+    "amount": 42000,
+    "review": false,
+    "box": [
+     151,
+     528,
+     1148,
+     583
+    ]
+   },
+   {
+    "item": "오이",
+    "qty": 2,
+    "unit_price": 22000,
+    "amount": 44000,
+    "review": false,
+    "box": [
+     151,
+     583,
+     1150,
+     636
+    ]
+   }
+  ]
+ },
+ {
+  "file": "명세서_06.pdf",
+  "seconds": 15.074389200017322,
+  "total_mismatch": false,
+  "fields": {
+   "supplier": {
+    "value": "산들주류상사",
+    "review": false,
+    "box": [
+     465,
+     58,
+     773,
+     121
+    ]
+   },
+   "date": {
+    "value": "2026-10-08",
+    "review": false,
+    "box": [
+     76,
+     212,
+     306,
+     243
+    ]
+   },
+   "doc_total": {
+    "value": 604000,
+    "review": false,
+    "box": [
+     1013,
+     639,
+     1142,
+     678
+    ]
+   }
+  },
+  "items": [
+   {
+    "item": "생맥주20L",
+    "qty": 4,
+    "unit_price": 68000,
+    "amount": 272000,
+    "review": false,
+    "box": [
+     83,
+     342,
+     1140,
+     380
+    ]
+   },
+   {
+    "item": "소주(20병입)",
+    "qty": 3,
+    "unit_price": 38000,
+    "amount": 114000,
+    "review": false,
+    "box": [
+     83,
+     398,
+     1140,
+     437
+    ]
+   },
+   {
+    "item": "하이볼용토닉(24캔입)",
+    "qty": 2,
+    "unit_price": 26000,
+    "amount": 52000,
+    "review": false,
+    "box": [
+     83,
+     455,
+     1142,
+     491
+    ]
+   },
+   {
+    "item": "병맥주(20병입)",
+    "qty": 3,
+    "unit_price": 41000,
+    "amount": 123000,
+    "review": false,
+    "box": [
+     83,
+     508,
+     1142,
+     548
+    ]
+   },
+   {
+    "item": "청하(20병입)",
+    "qty": 1,
+    "unit_price": 43000,
+    "amount": 43000,
+    "review": true,
+    "box": [
+     83,
+     563,
+     1142,
+     605
+    ]
+   }
+  ]
+ },
+ {
+  "file": "명세서_07.pdf",
+  "seconds": 15.796923300018534,
+  "total_mismatch": false,
+  "fields": {
+   "supplier": {
+    "value": "바다한상수산",
+    "review": false,
+    "box": [
+     640,
+     236,
+     934,
+     267
+    ]
+   },
+   "date": {
+    "value": "2026-09-07",
+    "review": false,
+    "box": [
+     79,
+     164,
+     441,
+     205
+    ]
+   },
+   "doc_total": {
+    "value": 118000,
+    "review": false,
+    "box": [
+     965,
+     654,
+     1148,
+     698
+    ]
+   }
+  },
+  "items": [
+   {
+    "item": "모듬해물",
+    "qty": 2.5,
+    "unit_price": 18000,
+    "amount": 45000,
+    "review": true,
+    "box": [
+     155,
+     477,
+     1156,
+     530
+    ]
+   },
+   {
+    "item": "오징어",
+    "qty": 8,
+    "unit_price": 3500,
+    "amount": 28000,
+    "review": false,
+    "box": [
+     157,
+     534,
+     1155,
+     581
+    ]
+   },
+   {
+    "item": "칵테일새우",
+    "qty": 3,
+    "unit_price": 15000,
+    "amount": 45000,
+    "review": false,
+    "box": [
+     155,
+     586,
+     1151,
+     634
+    ]
+   }
+  ]
+ },
+ {
+  "file": "명세서_08.pdf",
+  "seconds": 14.48877039999934,
+  "total_mismatch": false,
+  "fields": {
+   "supplier": {
+    "value": "정육명가",
+    "review": false,
+    "box": [
+     513,
+     60,
+     720,
+     119
+    ]
+   },
+   "date": {
+    "value": "2026-09-25",
+    "review": false,
+    "box": [
+     72,
+     208,
+     277,
+     251
+    ]
+   },
+   "doc_total": {
+    "value": 363000,
+    "review": false,
+    "box": [
+     1013,
+     583,
+     1142,
+     621
+    ]
+   }
+  },
+  "items": [
+   {
+    "item": "돼지삼겹",
+    "qty": 5,
+    "unit_price": 13000,
+    "amount": 65000,
+    "review": false,
+    "box": [
+     81,
+     341,
+     1140,
+     384
+    ]
+   },
+   {
+    "item": "한우대창",
+    "qty": 2,
+    "unit_price": 32000,
+    "amount": 64000,
+    "review": false,
+    "box": [
+     83,
+     398,
+     1140,
+     438
+    ]
+   },
+   {
+    "item": "소급창",
+    "qty": 3,
+    "unit_price": 30000,
+    "amount": 90000,
+    "review": true,
+    "box": [
+     81,
+     455,
+     1142,
+     495
+    ]
+   },
+   {
+    "item": "사골육수",
+    "qty": 30,
+    "unit_price": 4800,
+    "amount": 144000,
+    "review": false,
+    "box": [
+     81,
+     510,
+     1142,
+     550
+    ]
+   }
+  ]
+ },
+ {
+  "file": "명세서_09.pdf",
+  "seconds": 15.68052150006406,
+  "total_mismatch": false,
+  "fields": {
+   "supplier": {
+    "value": "정육명가",
+    "review": false,
+    "box": [
+     642,
+     228,
+     890,
+     263
+    ]
+   },
+   "date": {
+    "value": "2026-10-28",
+    "review": false,
+    "box": [
+     85,
+     159,
+     384,
+     196
+    ]
+   },
+   "doc_total": {
+    "value": 282000,
+    "review": false,
+    "box": [
+     965,
+     652,
+     1150,
+     702
+    ]
+   }
+  },
+  "items": [
+   {
+    "item": "사골육수",
+    "qty": 20,
+    "unit_price": 4800,
+    "amount": 96000,
+    "review": false,
+    "box": [
+     156,
+     471,
+     1153,
+     519
+    ]
+   },
+   {
+    "item": "한우대창",
+    "qty": 3,
+    "unit_price": 32000,
+    "amount": 96000,
+    "review": false,
+    "box": [
+     159,
+     528,
+     1153,
+     574
+    ]
+   },
+   {
+    "item": "소곱창",
+    "qty": 3,
+    "unit_price": 30000,
+    "amount": 90000,
+    "review": false,
+    "box": [
+     157,
+     581,
+     1153,
+     631
+    ]
+   }
+  ]
+ },
+ {
+  "file": "명세서_10.pdf",
+  "seconds": 14.94856820005225,
+  "total_mismatch": false,
+  "fields": {
+   "supplier": {
+    "value": "산들주류상사",
+    "review": false,
+    "box": [
+     474,
+     55,
+     783,
+     123
+    ]
+   },
+   "date": {
+    "value": "2026-09-04",
+    "review": false,
+    "box": [
+     83,
+     206,
+     303,
+     249
+    ]
+   },
+   "doc_total": {
+    "value": 563000,
+    "review": false,
+    "box": [
+     1011,
+     639,
+     1148,
+     689
+    ]
+   }
+  },
+  "items": [
+   {
+    "item": "병맥주(20병입)",
+    "qty": 2,
+    "unit_price": 41000,
+    "amount": 82000,
+    "review": false,
+    "box": [
+     86,
+     336,
+     1151,
+     393
+    ]
+   },
+   {
+    "item": "생맥주20L",
+    "qty": 4,
+    "unit_price": 68000,
+    "amount": 272000,
+    "review": false,
+    "box": [
+     86,
+     394,
+     1150,
+     448
+    ]
+   },
+   {
+    "item": "하이볼용토닉(24캔입)",
+    "qty": 2,
+    "unit_price": 26000,
+    "amount": 52000,
+    "review": false,
+    "box": [
+     86,
+     449,
+     1150,
+     504
+    ]
+   },
+   {
+    "item": "소주(20병입)",
+    "qty": 3,
+    "unit_price": 38000,
+    "amount": 114000,
+    "review": false,
+    "box": [
+     83,
+     504,
+     1150,
+     559
+    ]
+   },
+   {
+    "item": "청하(20병입)",
+    "qty": 1,
+    "unit_price": 43000,
+    "amount": 43000,
+    "review": false,
+    "box": [
+     83,
+     559,
+     1150,
+     618
+    ]
+   }
+  ]
+ },
+ {
+  "file": "명세서_11.pdf",
+  "seconds": 17.140743399970233,
+  "total_mismatch": false,
+  "fields": {
+   "supplier": {
+    "value": "초록마을농산",
+    "review": false,
+    "box": [
+     642,
+     234,
+     930,
+     259
+    ]
+   },
+   "date": {
+    "value": "2026-10-23",
+    "review": false,
+    "box": [
+     83,
+     166,
+     443,
+     197
+    ]
+   },
+   "doc_total": {
+    "value": 80000,
+    "review": true,
+    "box": [
+     984,
+     707,
+     1148,
+     751
+    ]
+   }
+  },
+  "items": [
+   {
+    "item": "레몬",
+    "qty": 20,
+    "unit_price": 700,
+    "amount": 14000,
+    "review": false,
+    "box": [
+     157,
+     479,
+     1151,
+     524
+    ]
+   },
+   {
+    "item": "무",
+    "qty": 15,
+    "unit_price": 2500,
+    "amount": 12500,
+    "review": true,
+    "box": [
+     157,
+     532,
+     1150,
+     579
+    ]
+   },
+   {
+    "item": "연근",
+    "qty": 15,
+    "unit_price": 6500,
+    "amount": 32500,
+    "review": true,
+    "box": [
+     157,
+     586,
+     1153,
+     632
+    ]
+   },
+   {
+    "item": "양배추",
+    "qty": null,
+    "unit_price": 4200,
+    "amount": 21000,
+    "review": true,
+    "box": [
+     155,
+     639,
+     1153,
+     687
+    ]
+   }
+  ]
+ },
+ {
+  "file": "명세서_12.pdf",
+  "seconds": 16.205134799994994,
+  "total_mismatch": false,
+  "fields": {
+   "supplier": {
+    "value": "면가원식품",
+    "review": false,
+    "box": [
+     481,
+     55,
+     740,
+     123
+    ]
+   },
+   "date": {
+    "value": "2026-11-12",
+    "review": false,
+    "box": [
+     68,
+     214,
+     273,
+     249
+    ]
+   },
+   "doc_total": {
+    "value": 160200,
+    "review": false,
+    "box": [
+     1013,
+     691,
+     1142,
+     731
+    ]
+   }
+  },
+  "items": [
+   {
+    "item": "돈가스소스(업소용대용량2kg)",
+    "qty": 2,
+    "unit_price": 8300,
+    "amount": 16600,
+    "review": false,
+    "box": [
+     77,
+     336,
+     1137,
+     384
+    ]
+   },
+   {
+    "item": "야끼소바소스(업소용대용량2kg)",
+    "qty": 2,
+    "unit_price": 7200,
+    "amount": 14400,
+    "review": false,
+    "box": [
+     79,
+     396,
+     1137,
+     441
+    ]
+   },
+   {
+    "item": "타르타르소스(업소용대용량1.8L)",
+    "qty": 2,
+    "unit_price": 9800,
+    "amount": 19600,
+    "review": false,
+    "box": [
+     79,
+     451,
+     1139,
+     495
+    ]
+   },
+   {
+    "item": "쿠시카츠꼬치대(대나무18cm1000입)",
+    "qty": 3,
+    "unit_price": 5200,
+    "amount": 15600,
+    "review": false,
+    "box": [
+     79,
+     508,
+     1139,
+     552
+    ]
+   },
+   {
+    "item": "마요네즈(업소용대용량3.2kg)",
+    "qty": 4,
+    "unit_price": 11500,
+    "amount": 46000,
+    "review": false,
+    "box": [
+     79,
+     561,
+     1137,
+     609
+    ]
+   },
+   {
+    "item": "우동면",
+    "qty": 40,
+    "unit_price": 1200,
+    "amount": 48000,
+    "review": false,
+    "box": [
+     79,
+     615,
+     1139,
+     667
+    ]
+   }
+  ]
+ },
+ {
+  "file": "명세서_13.pdf",
+  "seconds": 17.026345199963544,
+  "total_mismatch": false,
+  "fields": {
+   "supplier": {
+    "value": "면가원식품",
+    "review": false,
+    "box": [
+     633,
+     232,
+     902,
+     263
+    ]
+   },
+   "date": {
+    "value": "2026-10-22",
+    "review": false,
+    "box": [
+     74,
+     172,
+     354,
+     208
+    ]
+   },
+   "doc_total": {
+    "value": 183000,
+    "review": true,
+    "box": [
+     963,
+     703,
+     1146,
+     747
+    ]
+   }
+  },
+  "items": [
+   {
+    "item": "빵가루",
+    "qty": 5.5,
+    "unit_price": 2800,
+    "amount": 15400,
+    "review": false,
+    "box": [
+     153,
+     481,
+     1151,
+     524
+    ]
+   },
+   {
+    "item": "계란(특란)",
+    "qty": 4,
+    "unit_price": 6500,
+    "amount": 26000,
+    "review": false,
+    "box": [
+     153,
+     535,
+     1151,
+     580
+    ]
+   },
+   {
+    "item": "쿠시카츠꼬치대(대나무18cm1000입)3",
+    "qty": null,
+    "unit_price": 5200,
+    "amount": 15600,
+    "review": true,
+    "box": [
+     153,
+     588,
+     1150,
+     630
+    ]
+   },
+   {
+    "item": "식용유18L(콩기름업소용칸)",
+    "qty": 3,
+    "unit_price": 42000,
+    "amount": 126000,
+    "review": true,
+    "box": [
+     157,
+     643,
+     1151,
+     683
+    ]
+   }
+  ]
+ },
+ {
+  "file": "명세서_14.pdf",
+  "seconds": 15.964065800013486,
+  "total_mismatch": false,
+  "fields": {
+   "supplier": {
+    "value": "한울닭유통",
+    "review": false,
+    "box": [
+     485,
+     55,
+     746,
+     123
+    ]
+   },
+   "date": {
+    "value": "2026-10-03",
+    "review": false,
+    "box": [
+     70,
+     208,
+     303,
+     251
+    ]
+   },
+   "doc_total": {
+    "value": 225900,
+    "review": false,
+    "box": [
+     1011,
+     694,
+     1142,
+     733
+    ]
+   }
+  },
+  "items": [
+   {
+    "item": "닭목살",
+    "qty": 5,
+    "unit_price": 9500,
+    "amount": 47500,
+    "review": false,
+    "box": [
+     79,
+     339,
+     1140,
+     386
+    ]
+   },
+   {
+    "item": "닭가슴연골",
+    "qty": 2,
+    "unit_price": 13500,
+    "amount": 27000,
+    "review": false,
+    "box": [
+     79,
+     396,
+     1140,
+     442
+    ]
+   },
+   {
+    "item": "닭무릎연골",
+    "qty": 3,
+    "unit_price": 14000,
+    "amount": 42000,
+    "review": false,
+    "box": [
+     81,
+     449,
+     1143,
+     495
+    ]
+   },
+   {
+    "item": "닭다리살",
+    "qty": 8,
+    "unit_price": 8200,
+    "amount": 65600,
+    "review": false,
+    "box": [
+     81,
+     508,
+     1140,
+     552
+    ]
+   },
+   {
+    "item": "닭염통",
+    "qty": 2,
+    "unit_price": 7200,
+    "amount": 14400,
+    "review": true,
+    "box": [
+     79,
+     566,
+     1142,
+     608
+    ]
+   },
+   {
+    "item": "닭완자(츠쿠네용)",
+    "qty": 3,
+    "unit_price": 9800,
+    "amount": 29400,
+    "review": false,
+    "box": [
+     83,
+     616,
+     1142,
+     666
+    ]
+   }
+  ]
+ },
+ {
+  "file": "명세서_15.pdf",
+  "seconds": 16.152956200006884,
+  "total_mismatch": false,
+  "fields": {
+   "supplier": {
+    "value": "한울닭유통",
+    "review": false,
+    "box": [
+     642,
+     230,
+     912,
+     263
+    ]
+   },
+   "date": {
+    "value": "2026-10-05",
+    "review": false,
+    "box": [
+     85,
+     159,
+     449,
+     196
+    ]
+   },
+   "doc_total": {
+    "value": 89100,
+    "review": false,
+    "box": [
+     985,
+     656,
+     1150,
+     702
+    ]
+   }
+  },
+  "items": [
+   {
+    "item": "닭완자(츠쿠네용)",
+    "qty": 2,
+    "unit_price": 9800,
+    "amount": 19600,
+    "review": false,
+    "box": [
+     161,
+     473,
+     1151,
+     519
+    ]
+   },
+   {
+    "item": "닭껍질",
+    "qty": 4,
+    "unit_price": 5500,
+    "amount": 22000,
+    "review": true,
+    "box": [
+     159,
+     526,
+     1155,
+     576
+    ]
+   },
+   {
+    "item": "닭목살",
+    "qty": 5,
+    "unit_price": 9500,
+    "amount": 47500,
+    "review": false,
+    "box": [
+     159,
+     581,
+     1154,
+     629
+    ]
+   }
+  ]
+ },
+ {
+  "file": "명세서_16.pdf",
+  "seconds": 16.142495099978987,
+  "total_mismatch": false,
+  "fields": {
+   "supplier": {
+    "value": "한울닭유통",
+    "review": false,
+    "box": [
+     481,
+     55,
+     740,
+     123
+    ]
+   },
+   "date": {
+    "value": "2026-10-17",
+    "review": false,
+    "box": [
+     68,
+     216,
+     269,
+     259
+    ]
+   },
+   "doc_total": {
+    "value": 223600,
+    "review": false,
+    "box": [
+     1007,
+     741,
+     1145,
+     792
+    ]
+   }
+  },
+  "items": [
+   {
+    "item": "닭껍질",
+    "qty": 3.5,
+    "unit_price": 5500,
+    "amount": 19250,
+    "review": true,
+    "box": [
+     74,
+     339,
+     1139,
+     395
+    ]
+   },
+   {
+    "item": "닭날개",
+    "qty": 5,
+    "unit_price": 6900,
+    "amount": 34500,
+    "review": false,
+    "box": [
+     73,
+     399,
+     1140,
+     452
+    ]
+   },
+   {
+    "item": "닭가슴연골",
+    "qty": 1.5,
+    "unit_price": 13500,
+    "amount": 20250,
+    "review": false,
+    "box": [
+     78,
+     457,
+     1140,
+     504
+    ]
+   },
+   {
+    "item": "닭다리살",
+    "qty": 8,
+    "unit_price": 8200,
+    "amount": 65600,
+    "review": false,
+    "box": [
+     78,
+     507,
+     1143,
+     563
+    ]
+   },
+   {
+    "item": "닭모래집",
+    "qty": 3.5,
+    "unit_price": 6800,
+    "amount": 23800,
+    "review": false,
+    "box": [
+     77,
+     562,
+     1143,
+     620
+    ]
+   },
+   {
+    "item": "닭염통",
+    "qty": 3.5,
+    "unit_price": 7200,
+    "amount": 25200,
+    "review": true,
+    "box": [
+     79,
+     621,
+     1142,
+     672
+    ]
+   },
+   {
+    "item": "닭무릎연골",
+    "qty": 2.5,
+    "unit_price": 14000,
+    "amount": 35000,
+    "review": false,
+    "box": [
+     79,
+     673,
+     1146,
+     730
+    ]
+   }
+  ]
+ },
+ {
+  "file": "명세서_17.pdf",
+  "seconds": 19.035626800032333,
+  "total_mismatch": false,
+  "fields": {
+   "supplier": {
+    "value": "한울닭유통",
+    "review": false,
+    "box": [
+     479,
+     54,
+     740,
+     123
+    ]
+   },
+   "date": {
+    "value": "2026-10-04",
+    "review": false,
+    "box": [
+     70,
+     214,
+     299,
+     250
+    ]
+   },
+   "doc_total": {
+    "value": -219800,
+    "review": true,
+    "box": [
+     980,
+     745,
+     1151,
+     789
+    ]
+   }
+  },
+  "items": [
+   {
+    "item": "닭염통",
+    "qty": 2,
+    "unit_price": 7200,
+    "amount": 14400,
+    "review": true,
+    "box": [
+     76,
+     337,
+     1139,
+     387
+    ]
+   },
+   {
+    "item": "닭껍질",
+    "qty": 4,
+    "unit_price": 5500,
+    "amount": 22000,
+    "review": false,
+    "box": [
+     76,
+     394,
+     1139,
+     446
+    ]
+   },
+   {
+    "item": "",
+    "qty": 5,
+    "unit_price": null,
+    "amount": 70000,
+    "review": true,
+    "box": [
+     690,
+     420,
+     1131,
+     468
+    ]
+   },
+   {
+    "item": "닭무릎연골",
+    "qty": 2,
+    "unit_price": 14000,
+    "amount": 28000,
+    "review": true,
+    "box": [
+     79,
+     449,
+     1146,
+     497
+    ]
+   },
+   {
+    "item": "닭안심",
+    "qty": 5,
+    "unit_price": 7800,
+    "amount": 39000,
+    "review": false,
+    "box": [
+     79,
+     503,
+     1139,
+     555
+    ]
+   },
+   {
+    "item": "닭가슴연골",
+    "qty": 2,
+    "unit_price": 13500,
+    "amount": 27000,
+    "review": false,
+    "box": [
+     81,
+     558,
+     1142,
+     612
+    ]
+   },
+   {
+    "item": "닭날개",
+    "qty": 10,
+    "unit_price": 6900,
+    "amount": 69000,
+    "review": false,
+    "box": [
+     79,
+     615,
+     1140,
+     667
+    ]
+   },
+   {
+    "item": "닭모래집",
+    "qty": 3,
+    "unit_price": 6800,
+    "amount": 20400,
+    "review": false,
+    "box": [
+     81,
+     671,
+     1146,
+     722
+    ]
+   }
+  ]
+ },
+ {
+  "file": "명세서_18.pdf",
+  "seconds": 19.925641300040297,
+  "total_mismatch": false,
+  "fields": {
+   "supplier": {
+    "value": "초복아을농산",
+    "review": true,
+    "box": [
+     667,
+     228,
+     960,
+     278
+    ]
+   },
+   "date": {
+    "value": "2026-10-13",
+    "review": false,
+    "box": [
+     110,
+     133,
+     373,
+     187
+    ]
+   },
+   "doc_total": {
+    "value": 212550,
+    "review": false,
+    "box": [
+     957,
+     937,
+     1145,
+     993
+    ]
+   }
+  },
+  "items": [
+   {
+    "item": "대마",
+    "qty": 8,
+    "unit_price": 3.8,
+    "amount": 30400,
+    "review": true,
+    "box": [
+     171,
+     450,
+     1171,
+     543
+    ]
+   },
+   {
+    "item": "연근",
+    "qty": 5.5,
+    "unit_price": 6500,
+    "amount": 35750,
+    "review": false,
+    "box": [
+     169,
+     503,
+     1169,
+     596
+    ]
+   },
+   {
+    "item": "무",
+    "qty": 5,
+    "unit_price": 2500,
+    "amount": 12500,
+    "review": true,
+    "box": [
+     165,
+     557,
+     1165,
+     651
+    ]
+   },
+   {
+    "item": "양배추",
+    "qty": 10,
+    "unit_price": 4200,
+    "amount": 42000,
+    "review": false,
+    "box": [
+     163,
+     611,
+     1163,
+     704
+    ]
+   },
+   {
+    "item": "양파",
+    "qty": 10.5,
+    "unit_price": 1800,
+    "amount": 18900,
+    "review": false,
+    "box": [
+     160,
+     664,
+     1160,
+     759
+    ]
+   },
+   {
+    "item": "레온",
+    "qty": 20,
+    "unit_price": 700,
+    "amount": 14000,
+    "review": true,
+    "box": [
+     156,
+     717,
+     1154,
+     812
+    ]
+   },
+   {
+    "item": "뺏잎",
+    "qty": 10,
+    "unit_price": 1500,
+    "amount": 15000,
+    "review": true,
+    "box": [
+     154,
+     774,
+     1154,
+     865
+    ]
+   },
+   {
+    "item": "오이",
+    "qty": 2,
+    "unit_price": 22000,
+    "amount": 44000,
+    "review": false,
+    "box": [
+     150,
+     827,
+     1152,
+     922
+    ]
+   }
+  ]
+ },
+ {
+  "file": "명세서_19.pdf",
+  "seconds": 24.434411599941086,
+  "total_mismatch": false,
+  "fields": {
+   "supplier": {
+    "value": "면가원식품",
+    "review": false,
+    "box": [
+     625,
+     206,
+     836,
+     247
+    ]
+   },
+   "date": {
+    "value": "2026-11-12",
+    "review": false,
+    "box": [
+     66,
+     150,
+     356,
+     194
+    ]
+   },
+   "doc_total": {
+    "value": 411590,
+    "review": false,
+    "box": [
+     998,
+     1127,
+     1139,
+     1170
+    ]
+   }
+  },
+  "items": [
+   {
+    "item": "야끼소바소스(업소용대용량2kg)",
+    "qty": 3,
+    "unit_price": 7200,
+    "amount": 21600,
+    "review": false,
+    "box": [
+     127,
+     427,
+     1150,
+     477
+    ]
+   },
+   {
+    "item": "계란(특란)",
+    "qty": 8,
+    "unit_price": 6500,
+    "amount": 52000,
+    "review": false,
+    "box": [
+     127,
+     479,
+     1150,
+     530
+    ]
+   },
+   {
+    "item": "식용유18L(콩기름업소용캔)",
+    "qty": 3,
+    "unit_price": 42000,
+    "amount": 126000,
+    "review": true,
+    "box": [
+     127,
+     527,
+     1150,
+     578
+    ]
+   },
+   {
+    "item": "소바면",
+    "qty": 20,
+    "unit_price": 1300,
+    "amount": 26000,
+    "review": false,
+    "box": [
+     125,
+     577,
+     1152,
+     631
+    ]
+   },
+   {
+    "item": "우동면",
+    "qty": 30,
+    "unit_price": 1200,
+    "amount": 36000,
+    "review": false,
+    "box": [
+     129,
+     628,
+     1152,
+     680
+    ]
+   },
+   {
+    "item": "빵가루",
+    "qty": 5,
+    "unit_price": 2800,
+    "amount": 14000,
+    "review": false,
+    "box": [
+     131,
+     679,
+     1153,
+     727
+    ]
+   },
+   {
+    "item": "가쓰오부시",
+    "qty": 3,
+    "unit_price": 5800,
+    "amount": 17400,
+    "review": false,
+    "box": [
+     131,
+     731,
+     1153,
+     778
+    ]
+   },
+   {
+    "item": "쿠시카츠꼬치대(대나무18cm1000입)",
+    "qty": 5,
+    "unit_price": 5200,
+    "amount": 26000,
+    "review": true,
+    "box": [
+     129,
+     778,
+     1158,
+     861
+    ]
+   },
+   {
+    "item": "돈가스소스(업소용대용량2kg)",
+    "qty": 3,
+    "unit_price": 8300,
+    "amount": 24900,
+    "review": false,
+    "box": [
+     133,
+     857,
+     1155,
+     905
+    ]
+   },
+   {
+    "item": "튀김가루",
+    "qty": 5,
+    "unit_price": 2400,
+    "amount": 12000,
+    "review": false,
+    "box": [
+     133,
+     906,
+     1157,
+     956
+    ]
+   },
+   {
+    "item": "마요네즈(업소용대용량3.2kg)",
+    "qty": 2,
+    "unit_price": 11500,
+    "amount": 23000,
+    "review": false,
+    "box": [
+     133,
+     953,
+     1158,
+     1003
+    ]
+   }
+  ]
+ },
+ {
+  "file": "명세서_20.pdf",
+  "seconds": 17.24664109997684,
+  "total_mismatch": true,
+  "fields": {
+   "supplier": {
+    "value": "정육명가",
+    "review": false,
+    "box": [
+     642,
+     228,
+     891,
+     263
+    ]
+   },
+   "date": {
+    "value": "2026-09-21",
+    "review": false,
+    "box": [
+     86,
+     157,
+     366,
+     196
+    ]
+   },
+   "doc_total": {
+    "value": 347000,
+    "review": true,
+    "box": [
+     963,
+     762,
+     1148,
+     810
+    ]
+   }
+  },
+  "items": [
+   {
+    "item": "한우대창",
+    "qty": 2,
+    "unit_price": 32000,
+    "amount": 64000,
+    "review": false,
+    "box": [
+     161,
+     473,
+     1157,
+     523
+    ]
+   },
+   {
+    "item": "사골육수",
+    "qty": 30,
+    "unit_price": 4800,
+    "amount": 144000,
+    "review": false,
+    "box": [
+     157,
+     524,
+     1153,
+     574
+    ]
+   },
+   {
+    "item": "소급창",
+    "qty": 3,
+    "unit_price": 30000,
+    "amount": 90000,
+    "review": true,
+    "box": [
+     152,
+     573,
+     1155,
+     630
+    ]
+   },
+   {
+    "item": "돼지삼겹",
+    "qty": 3,
+    "unit_price": 13000,
+    "amount": 39000,
+    "review": false,
+    "box": [
+     153,
+     630,
+     1155,
+     683
+    ]
+   },
+   {
+    "item": "단골할인",
+    "qty": 1,
+    "unit_price": -20000,
+    "amount": -20000,
+    "review": false,
+    "box": [
+     154,
+     683,
+     1156,
+     740
+    ]
+   }
+  ]
+ }
+]
