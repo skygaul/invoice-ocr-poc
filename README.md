@@ -42,6 +42,16 @@
 - **문서 요약** 시트: 문서당 한 행. 품목 금액의 합과 문서 합계를 나란히 놓아 합계 불일치(20번)와 확인 필요 항목을 보여 줍니다.
 - 품목이 103행인 이유: 정답은 102줄인데 17번(손글씨 정정)에서 손글씨가 별도 줄로 읽혀 1줄이 더 생겼고, 그 줄은 확인 필요로 표시됩니다.
 
+### 수기 입력과 비교하기 (측정 앱)
+
+같은 서류 8장을 수기 입력과 AI 보조 검토(노란색 행만 고치기)로 한 번씩 처리하면서 시간과 틀린 칸을 재는 앱입니다. 브라우저에서 클릭만으로 재고, 이 컴퓨터 안에서만 돌며, 새로 설치할 패키지는 없습니다. **아직 실제로 재지 않았습니다.**
+
+```bash
+python -X utf8 -W ignore src/measure_app.py
+```
+
+절차와 규칙은 [docs/07_수기입력_측정절차.md](docs/07_수기입력_측정절차.md)에 있습니다. 목표를 재기 전에 저장하고 첫 측정 뒤에는 바꿀 수 없으며, AI 보조에서는 노란색이 아닌 행을 고칠 수 없습니다(서버도 검사).
+
 ## 빠른 시작: 재현하기
 
 필요한 것: **Python 3.13**, 인터넷(패키지와 모델 내려받기), 디스크 여유 약 1.2GB(새 가상환경 약 1GB + 모델 약 0.1GB, 2026-11-18 측정). GPU는 필요 없습니다(paddlepaddle CPU 빌드).
@@ -106,7 +116,8 @@ python -X utf8 src/export_xlsx.py --pred outputs/A/<실행시각>/predictions.js
 | `src/run_a.py`, `src/table_parse.py` | 후보 A: PDF → 글자 인식 → 줄·표 조립 → 값, 확인 필요 표시, 박스 |
 | `src/score.py`, `src/test_score.py` | 채점기(모델 실행 전에 규칙 고정)와 테스트 24개 |
 | `src/export_xlsx.py`, `src/test_export.py` | 결과 → 엑셀·CSV 행 초안, 테스트 9개 |
-| `src/measure.py`, `src/test_measure.py`, `measurement/` | 수기 입력 vs AI 보조 측정 도구(테스트 19개)와 기록 시트(아직 비어 있음) |
+| `src/measure_app.py`, `src/measure_app/index.html`, `src/test_measure_app.py` | 측정 앱(브라우저에서 클릭으로 재기), 테스트 28개 |
+| `src/measure.py`, `src/test_measure.py`, `measurement/` | 측정 계산 도구(테스트 19개)와 기록 시트(아직 비어 있음) |
 | `src/reproduce.py`, `src/prepare_a.py` | 재현 확인, 모델 준비 |
 | `src/run_b.py`, `src/prepare_b.py` | 후보 B (선택 사항) |
 | `src/common.py` | PDF 렌더링, 파이썬 외부 연결 차단, 박스 그림 |
