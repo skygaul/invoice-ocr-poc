@@ -91,6 +91,149 @@ def _header_role(text):
     return None
 
 
+UNIT_WORDS = {"ea", "kg", "g", "l", "ml", "box", "박스", "봉", "개", "통", "단", "팩", "속", "판", "병", "캔", "마리", "식"}
+
+
+def _jamo(ch):
+    c = ord(ch) - 0xAC00
+    return (c // 588, (c % 588) // 28, c % 28) if 0 <= c < 11172 else None
+
+
+def _syl_dist(a, b):
+    """두 글자의 모양 차이(초성·중성·종성 중 다른 개수). 한글이 아니면 최대(3)."""
+    ja, jb = _jamo(a), _jamo(b)
+    if ja is None or jb is None:
+        return 3
+    return sum(x != y for x, y in zip(ja, jb))
+
+
+def _fuzzy_role(text):
+    """표 제목 글자의 역할. 정확히 같으면 (역할, False), 한 글자만 다르면 (역할, True), 아니면 (None, False).
+    '단기'는 단가·단위 둘 다 한 글자 차이라서, 자음·모음이 더 비슷한 쪽을 고르고 동점이면 포기한다."""
+    t = _norm(text).lower()
+    r = _header_role(t)
+    if r:
+        return r, False
+    if not 2 <= len(t) <= 4:
+        return None, False
+    cands = []
+    for role, keys in HEADER_KEYS.items():
+        if role == "no":
+            continue
+        for k in keys:
+            if len(k) != len(t):
+                continue
+            diff = [(a, b) for a, b in zip(k, t) if a != b]
+            if len(diff) == 1:
+                cands.append((_syl_dist(*diff[0]), role))
+    if not cands:
+        return None, False
+    cands.sort()
+    if len(cands) > 1 and cands[0][0] == cands[1][0] and cands[0][1] != cands[1][1]:
+        return None, False
+    return cands[0][1], True
+
+
+def _split_header_token(t):
+    """'수양단위'처럼 붙어서 읽힌 제목을 역할별 조각으로 쪼갠다(조각 위치는 글자 수 비례). 못 쪼개면 []."""
+    s = _norm(t["text"])
+    n = len(s)
+    if not 4 <= n <= 12:
+        return []
+    parts, i = [], 0
+    while i < n:
+        for L in (4, 2):
+            chunk = s[i:i + L]
+            if len(chunk) == L and _fuzzy_role(chunk)[0]:
+                parts.append((_fuzzy_role(chunk)[0], i, L))
+                i += L
+                break
+        else:
+            return []
+    if len(parts) < 2:
+        return []
+    width = t["box"][2] - t["box"][0]
+    left = t["cx"] - width / 2
+    out = []
+    for role, i, L in parts:
+        v = dict(t)
+        v["text"] = s[i:i + L]
+        v["cx"] = left + (i + L / 2) / n * width
+        out.append((role, v))
+    return out
+
+
+def _line_roles(ln):
+    roles, fuzzy = {}, False
+    for t in ln:
+        r, fz = _fuzzy_role(t["text"])
+        if r:
+            roles[r] = t
+            fuzzy = fuzzy or fz
+            continue
+        for role, v in _split_header_token(t):
+            roles[role] = v
+            fuzzy = True
+    return roles, fuzzy
+
+
+def _is_num_like(t):
+    s = _norm(t["text"])
+    return _is_numeric_token(s) or s == "면세"
+
+
+def _infer_columns(lines, img_w):
+    """제목줄을 못 읽었을 때: 숫자 조각이 3개 이상인 줄을 품목 줄로 보고 숫자 칸의 위치로 열을 추정한다.
+    번호 칸(왼쪽의 1, 2, 3…)을 빼고 남은 숫자가 3개면 수량·단가·금액, 4개면 세액까지.
+    추정이 맞는지는 수량×단가=금액이 맞는 줄이 절반 이상일 때만 인정한다. 반환: (열, 첫 줄, 끝 줄+1) 또는 None."""
+    cand = [i for i, ln in enumerate(lines) if sum(map(_is_num_like, ln)) >= 3]
+    if len(cand) < 2:
+        return None
+    rows = []
+    for i in cand:
+        ln = lines[i]
+        nums = sorted([t for t in ln if _is_num_like(t)], key=lambda t: t["cx"])
+        ids = {id(t) for t in nums}
+        names = [t for t in ln if id(t) not in ids]
+        no_tok = None
+        if len(nums) >= 4 and re.fullmatch(r"\d+", _norm(nums[0]["text"])):
+            left_limit = min((t["cx"] for t in names), default=0.15 * img_w)
+            if nums[0]["cx"] < left_limit:
+                no_tok, nums = nums[0], nums[1:]
+        rows.append((i, no_tok, nums))
+    mode = statistics.mode(len(r[2]) for r in rows)
+    if mode not in (3, 4):
+        return None
+    good = [r for r in rows if len(r[2]) == mode]
+    cols = {}
+    for k, role in enumerate(("qty", "price", "amount", "tax")[:mode]):
+        cols[role] = {"cx": statistics.median(r[2][k]["cx"] for r in good), "score": 1.0, "box": None}
+    nos = [r[1]["cx"] for r in good if r[1] is not None]
+    if nos:
+        cols["no"] = {"cx": statistics.median(nos), "score": 1.0, "box": None}
+    ok = 0
+    for r in good:
+        q, pr, am = (_num(r[2][k]["text"]) for k in range(3))
+        if None not in (q, pr, am) and round(q * pr) == am:
+            ok += 1
+    if ok < max(2, 0.5 * len(good)):
+        return None
+    first, last = cand[0], cand[-1]
+    end = last + 1
+    pitch = statistics.median(lines_cy(lines, cand[k + 1]) - lines_cy(lines, cand[k]) for k in range(len(cand) - 1))
+    if end < len(lines):  # 마지막 품목명이 줄바꿈됐으면 바로 아래 글자만 있는 줄을 붙인다
+        nxt = lines[end]
+        txt = _norm("".join(t["text"] for t in nxt))
+        gap = lines_cy(lines, end) - lines_cy(lines, last)
+        if not any(map(_is_num_like, nxt)) and gap <= 1.6 * pitch and not re.search(r"합계|계|비고|※", txt):
+            end += 1
+    return cols, first, end
+
+
+def lines_cy(lines, i):
+    return statistics.mean(t["cy"] for t in lines[i])
+
+
 def parse(tokens, img_w, img_h, p: Params):
     """tokens: [{'text','score','box':[x1,y1,x2,y2],'poly':[[x,y]*4] (선택)}]
     반환: (fields, items, doc_flags, notes)"""
@@ -119,21 +262,25 @@ def parse(tokens, img_w, img_h, p: Params):
         ln.sort(key=lambda t: t["cx"])
     line_y = [statistics.mean(t["cy"] for t in ln) for ln in lines]
 
-    # 표 제목줄: 수량·단가를 함께 가진 줄
-    hdr_idx, cols = None, {}
+    # 표 제목줄: 수량·단가·금액을 함께 가진 줄. 한 글자 오독과 붙어서 읽힌 제목도 인정한다.
+    hdr_idx, cols, fallback = None, {}, None
     for i, ln in enumerate(lines):
-        roles = {}
-        for t in ln:
-            r = _header_role(t["text"])
-            if r:
-                roles[r] = t
+        roles, fuzzy = _line_roles(ln)
         if "qty" in roles and "price" in roles and "amount" in roles:
             hdr_idx, cols = i, roles
+            if fuzzy:
+                notes.append("표 제목 글자를 비슷한 글자로 인정함")
             break
-    if hdr_idx is None:
-        notes.append("표 제목줄을 못 찾음")
-        return ({k: {"value": None, "review": True, "box": None} for k in ("supplier", "date", "doc_total")},
-                [], {"total_mismatch": False}, notes)
+    if hdr_idx is None:  # 제목줄을 못 읽음: 숫자 칸의 위치로 열을 추정하고, 수량×단가=금액으로 검증한다
+        inferred = _infer_columns(lines, img_w)
+        if inferred is None:
+            notes.append("표 제목줄을 못 찾음")
+            return ({k: {"value": None, "review": True, "box": None} for k in ("supplier", "date", "doc_total")},
+                    [], {"total_mismatch": False}, notes)
+        cols, first, end_idx = inferred
+        hdr_idx = first - 1
+        fallback = {"end": end_idx}
+        notes.append("표 제목줄을 못 찾아 숫자 칸의 위치로 열을 추정함")
     has_tax = "tax" in cols
     num_cols = [r for r in ("qty", "price", "amount", "tax") if r in cols]
     anchors = {r: cols[r]["cx"] for r in num_cols}
@@ -152,6 +299,8 @@ def parse(tokens, img_w, img_h, p: Params):
             end = i
     if end is None:
         end = len(lines)
+    if fallback is not None:  # 제목 없이 추정한 경우 품목 영역은 숫자 줄이 있는 범위로 한정한다
+        end = fallback["end"]
     skip_x = [cols[r]["cx"] for r in ("spec", "unit") if r in cols]
 
     # 품목 줄
@@ -167,6 +316,8 @@ def parse(tokens, img_w, img_h, p: Params):
                         abs(cols["no"]["cx"] - t["cx"]) < min(abs(a - t["cx"]) for a in anchors.values()) * 0.4:
                     continue  # 번호 칸
                 by_col[nearest_num_col(t)].append(t)
+            elif fallback is not None and txt.lower() in UNIT_WORDS:
+                continue  # 규격·단위 칸 위치를 모를 때는 단위 글자(EA, kg, 박스…)로 걸러낸다
             elif any(abs(sx - t["cx"]) < 55 for sx in skip_x):
                 continue  # 규격·단위 칸의 글자(EA, kg)는 품목명이 아님
             elif _header_role(txt) is None and t["cx"] < (anchors["qty"] - 30) and \
@@ -238,7 +389,7 @@ def parse(tokens, img_w, img_h, p: Params):
         return {"value": value, "review": bool(low or value is None or extra_review),
                 "box": _union([t["box"] for t in toks])}
 
-    head_lines = lines[:hdr_idx]
+    head_lines = lines[:max(hdr_idx, 0)]
     # 거래처
     sup_val, sup_toks = None, []
     for ln in head_lines:

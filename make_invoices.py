@@ -1,5 +1,5 @@
 """거래명세서 샘플 20장(스캔 PDF) + 정답 파일 생성.
-사용: python -X utf8 make_invoices.py [출력폴더] [미리보기폴더|-] [시드]
+사용: python -X utf8 make_invoices.py [출력폴더] [미리보기폴더|-] [시드] [깨끗한 원본 PNG 폴더]
 시드를 생략하면 시험용 20장(sample-invoices)과 같은 값이 나온다.
 개발용 샘플은 다른 시드로 만든다(예: 7). 시험용으로는 개발에 쓰지 않는다.
 모든 상호·번호·인명은 가상입니다.
@@ -12,9 +12,12 @@ from PIL import Image, ImageDraw, ImageFont, ImageFilter
 OUT = sys.argv[1] if len(sys.argv) > 1 else "sample-invoices"
 PREVIEW = sys.argv[2] if len(sys.argv) > 2 and sys.argv[2] != "-" else None
 SEED = int(sys.argv[3]) if len(sys.argv) > 3 else 20261117
+CLEAN_DIR = sys.argv[4] if len(sys.argv) > 4 else None  # 스캔 효과를 입히기 전의 깨끗한 페이지 이미지(PNG)도 저장
 os.makedirs(OUT, exist_ok=True)
 if PREVIEW:
     os.makedirs(PREVIEW, exist_ok=True)
+if CLEAN_DIR:
+    os.makedirs(CLEAN_DIR, exist_ok=True)
 
 random.seed(SEED)
 np.random.seed(SEED)
@@ -360,6 +363,8 @@ for d in docs:
     img, pos = render(d)
     if d.get("correction") is not None:
         handwrite(img, d, pos)
+    if CLEAN_DIR:
+        img.save(os.path.join(CLEAN_DIR, f"명세서_{d['no']:02d}.png"))
     if d["no"] == 18:
         out = scan(img, angle=-3.0, noise=14, blur=1.3, jpeg=45, down=0.55, contrast=0.72)
     elif d["no"] == 19:

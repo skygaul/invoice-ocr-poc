@@ -200,6 +200,16 @@ class ScoreTests(unittest.TestCase):
         self.assertEqual(s["criteria"]["1_품목_조용한오류"]["값"], 1)
         self.assertEqual(s["criteria"]["2_필드_조용한오류"]["값"], 1)
 
+    def test_file_extension_does_not_matter(self):
+        """스캔(.pdf)과 폰 사진(.jpg)이 같은 정답을 쓴다: 확장자를 떼고 이름으로 짝짓는다."""
+        p = perfect()
+        for d in p:
+            d["file"] = d["file"].replace(".pdf", ".jpg")
+        s = run(p)
+        self.assertTrue(s["전체_통과(1~6)"], s["criteria"])
+        self.assertEqual(s["경고"], [])
+        self.assertEqual(S.file_key("a/b/명세서_01.JPG"), "명세서_01")
+
     def test_gt_is_not_modified(self):
         before = copy.deepcopy(GT)
         run(perfect())

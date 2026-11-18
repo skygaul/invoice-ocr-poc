@@ -70,6 +70,24 @@ def render_pdf(path, dpi=DPI):
         return np.frombuffer(pix.samples, dtype=np.uint8).reshape(pix.height, pix.width, 3).copy()
 
 
+IMAGE_EXTS = (".jpg", ".jpeg", ".png")
+
+
+def list_inputs(folder):
+    """PDF와 사진(jpg, png)을 이름순으로."""
+    ok = (".pdf",) + IMAGE_EXTS
+    return sorted(os.path.join(folder, f) for f in os.listdir(folder) if f.lower().endswith(ok))
+
+
+def render_input(path, dpi=DPI):
+    """PDF는 첫 장을 렌더링하고, 사진은 그대로 읽는다(폰 사진의 회전 정보는 반영)."""
+    if path.lower().endswith(".pdf"):
+        return render_pdf(path, dpi)
+    from PIL import Image, ImageOps
+    with Image.open(path) as im:
+        return np.asarray(ImageOps.exif_transpose(im).convert("RGB")).copy()
+
+
 def new_run_dir(candidate, root="outputs"):
     """outputs/<후보>/<실행시각> 새 폴더. 이미 있으면 거부한다."""
     stamp = datetime.datetime.now().strftime("%Y%m%d-%H%M%S")

@@ -15,12 +15,18 @@ import time
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import common
+from rectify import RectifyParams, rectify as rectify_page
 from table_parse import Params, parse
 
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--pdf-dir", required=True)
+    ap.add_argument("--pdf-dir", "--input-dir", dest="pdf_dir", required=True,
+                    help="PDF 또는 사진(jpg, png)이 들어 있는 폴더")
+    ap.add_argument("--rectify", action="store_true", help="폰 사진에서 종이를 찾아 반듯하게 편 뒤 읽는다")
+    ap.add_argument("--flatfield", action="store_true", help="(--rectify와 함께) 조명 얼룩을 평평하게 보정")
+    ap.add_argument("--paper-min-area", type=float, default=RectifyParams.min_area_ratio)
+    ap.add_argument("--rect-work-side", type=int, default=RectifyParams.work_side)
     ap.add_argument("--det-model", default="PP-OCRv5_server_det")
     ap.add_argument("--rec-model", default="korean_PP-OCRv5_mobile_rec")
     ap.add_argument("--det-side", type=int, default=960, help="검출 입력의 긴 변 상한(px)")
@@ -38,7 +44,8 @@ def main():
 
     common.block_network()
     p = Params(a.conf_thresh, a.line_gap_ratio, a.tax_rate, a.tolerance)
-    pdfs = common.list_pdfs(a.pdf_dir)
+    rp = RectifyParams(work_side=a.rect_work_side, min_area_ratio=a.paper_min_area)
+    pdfs = common.list_inputs(a.pdf_dir)
     if a.limit:
         pdfs = pdfs[:a.limit]
     run_dir = common.new_run_dir("A", a.out_root)
@@ -58,13 +65,19 @@ def main():
     preds, log = [], {"model_load_seconds": load_s, "docs": {}}
     for path in pdfs:
         fname = os.path.basename(path)
-        img = common.render_pdf(path)
+        img = common.render_input(path)
+        rect_info, rect_s = None, 0.0
+        if a.rectify:  # 폰 사진: 종이를 찾아 반듯하게 편다. 박스 좌표는 편 페이지 기준이다.
+            t0 = time.perf_counter()
+            img, rect_info = rectify_page(img, rp, flatfield=a.flatfield)
+            rect_s = time.perf_counter() - t0
         h, w = img.shape[:2]
         raw_path = os.path.join(run_dir, "raw", fname + ".json")
         if a.reuse_raw:
             with open(os.path.join(a.reuse_raw, "raw", fname + ".json"), encoding="utf-8") as f:
                 raw = json.load(f)
             ocr_s = raw["ocr_seconds"]
+            rect_s = raw.get("rectify_seconds", rect_s)
             tokens = raw["tokens"]
         else:
             t0 = time.perf_counter()
@@ -74,18 +87,19 @@ def main():
                        "poly": [[int(x), int(y)] for x, y in pl]}
                       for tx, sc, bx, pl in zip(d["rec_texts"], d["rec_scores"], d["rec_boxes"], d["rec_polys"])]
         with open(raw_path, "w", encoding="utf-8") as f:
-            json.dump({"file": fname, "ocr_seconds": ocr_s, "image": [w, h], "tokens": tokens}, f,
-                      ensure_ascii=False)
+            json.dump({"file": fname, "ocr_seconds": ocr_s, "rectify_seconds": rect_s, "image": [w, h],
+                       "tokens": tokens}, f, ensure_ascii=False)
         t1 = time.perf_counter()
         fields, items, flags, notes = parse([dict(t) for t in tokens], w, h, p)
         parse_s = time.perf_counter() - t1
-        pred = {"file": fname, "seconds": ocr_s + parse_s, "total_mismatch": flags["total_mismatch"],
+        pred = {"file": fname, "seconds": rect_s + ocr_s + parse_s, "total_mismatch": flags["total_mismatch"],
                 "fields": fields, "items": [{k: v for k, v in it.items() if not k.startswith("_")} for it in items]}
         preds.append(pred)
-        log["docs"][fname] = {"ocr_seconds": ocr_s, "parse_seconds": parse_s, "notes": notes,
-                              "why": [it.get("_why") for it in items]}
-        common.draw_overlay(img, pred, os.path.join(run_dir, "overlay", fname.replace(".pdf", ".png")))
-        print(f"{fname}: {ocr_s + parse_s:.1f}s items={len(items)} notes={notes}", flush=True)
+        log["docs"][fname] = {"ocr_seconds": ocr_s, "parse_seconds": parse_s, "rectify_seconds": rect_s,
+                              "rectify": rect_info, "notes": notes, "why": [it.get("_why") for it in items]}
+        common.draw_overlay(img, pred, os.path.join(run_dir, "overlay", os.path.splitext(fname)[0] + ".png"))
+        rect_note = "" if rect_info is None else (" 종이 찾음" if rect_info.get("찾음") else f" 종이 못 찾음({rect_info.get('사유')})")
+        print(f"{fname}: {rect_s + ocr_s + parse_s:.1f}s items={len(items)}{rect_note} notes={notes}", flush=True)
 
     common.save_run(run_dir, preds, vars(a), log)
     if a.export:

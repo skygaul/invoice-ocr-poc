@@ -57,6 +57,11 @@ def norm_text(s):
     return re.sub(r"\s+", "", s).lower()
 
 
+def file_key(name):
+    """파일 이름에서 확장자를 뗀 것. 스캔(.pdf)과 폰 사진(.jpg)이 같은 정답을 쓰도록 이름으로만 짝짓는다."""
+    return os.path.splitext(os.path.basename(str(name or "")))[0]
+
+
 def to_num(x):
     if x is None or isinstance(x, bool):
         return None
@@ -149,11 +154,12 @@ def score(gt_docs, pred_docs):
     preds = {}
     warnings = []
     for p in pred_docs:
-        if p.get("file") in preds:
+        key = file_key(p.get("file"))
+        if key in preds:
             warnings.append(f"예측에 같은 파일이 두 번 있음: {p.get('file')} (앞의 것만 사용)")
             continue
-        preds[p.get("file")] = p
-    gt_files = {g["file"] for g in gt_docs}
+        preds[key] = p
+    gt_files = {file_key(g["file"]) for g in gt_docs}
     for f in preds:
         if f not in gt_files:
             warnings.append(f"정답에 없는 파일이 예측에 있음(무시): {f}")
@@ -170,7 +176,7 @@ def score(gt_docs, pred_docs):
 
     for g in gt_docs:
         tot["docs"] += 1
-        p = preds.get(g["file"])
+        p = preds.get(file_key(g["file"]))
         d = by_diff.setdefault(g["difficulty"], {"item_silent": 0, "item_errors": 0,
                                                  "field_silent": 0, "field_errors": 0, "docs": 0})
         d["docs"] += 1
